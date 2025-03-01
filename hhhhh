@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allgemeinwissen XXL 2025 - Mathis Kroke</title>
+    <style>
+        :root {
+            --primary-color: #c9236e;
+            --secondary-color: #1e88be;
+            --dark-bg: #0a0a2a;
+            --light-text: #ffffff;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            height: 100vh;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: 30vh auto 80px;
+            position: relative;
+        }
+        
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 30vh;
+            background-image: url('images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, var(--dark-bg), transparent);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            z-index: 2;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color), 0 0 20px var(--primary-color);
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+            }
+        }
+        
+        /* Main Content */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            padding: 20px;
+            align-items: center;
+        }
+        
+        /* Author Section */
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: var(--transition);
+        }
+        
+        .author-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(31, 38, 135, 0.3);
+        }
+        
+        .author-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .author-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .author-section p {
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* Book Section */
+        .book-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transition: var(--transition);
+        }
+        
+        .book-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(31, 38, 135, 0.3);
+        }
+        
+        .book-img {
+            height: 200px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+        
+        .book-section:hover .book-img {
+            transform: rotate(3deg) scale(1.05);
+        }
+        
+        .book-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .book-section p {
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .amazon-btn {
+            padding: 10px 20px;
+            background-color: #FF9900;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .amazon-btn:hover {
+            background-color: #FFB143;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+        }
+        
+        /* Quiz Button Section */
+        .quiz-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .quiz-btn {
+            position: relative;
+            padding: 20px 40px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(201, 35, 110, 0.5);
+            animation: pulse 1.5s infinite;
+        }
+        
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.8s;
+        }
+        
+        .quiz-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(30, 136, 190, 0.7);
+            animation: none;
+        }
+        
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(201, 35, 110, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(201, 35, 110, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 35, 110, 0);
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light-text);
+            font-size: 20px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(201, 35, 110, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .content {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(3, auto);
+                padding: 10px;
+                gap: 20px;
+                overflow-y: auto;
+            }
+            
+            body {
+                height: auto;
+                overflow-y: auto;
+                grid-template-rows: 30vh auto auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Allgemeinwissen XXL 2025</h1>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="content">
+        <!-- Author Section -->
+        <section class="author-section">
+            <img src="images/autor.JPG" alt="Mathis Kroke" class="author-img">
+            <h2>Der Autor</h2>
+            <p>Mathis Kroke ist ein leidenschaftlicher Wissensvermittler und Autor mehrerer erfolgreicher Sachbücher. Mit seiner einzigartigen Fähigkeit, komplexe Themen einfach zu erklären, begeistert er Leser aller Altersgruppen und regt zum Nachdenken an.</p>
+        </section>
+        
+        <!-- Quiz Section -->
+        <section class="quiz-section">
+            <p style="margin-bottom: 20px; font-size: 1.2rem;">Testen Sie Ihr Wissen mit unserem interaktiven Quiz!</p>
+            <a href="quiz.html" class="quiz-btn">Quiz starten</a>
+        </section>
+        
+        <!-- Book Section -->
+        <section class="book-section">
+            <img src="images/buch_ganz.png" alt="Allgemeinwissen XXL 2025 Buch" class="book-img">
+            <h2>Das Buch</h2>
+            <p>Vertiefen Sie Ihr Wissen in über 50 spannenden Themengebieten! Dieses umfassende Nachschlagewerk bietet Ihnen fundiertes Wissen aus verschiedensten Bereichen und enthält ein interaktives Quiz zur Wissensüberprüfung.</p>
+            <a href="https://www.amazon.de/Allgemeinwissen-XXL-Vertiefen-spannenden-Themengebieten/dp/B0DKZSPWDW" class="amazon-btn" target="_blank">
+                <i class="fab fa-amazon" style="margin-right: 8px;"></i> Jetzt bei Amazon bestellen
+            </a>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+    </footer>
+</body>
+</html>
